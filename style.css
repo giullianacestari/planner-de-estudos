@@ -1,0 +1,332 @@
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+/* Criando uma paleta de cores */
+:root {
+    --fonte-titulo: Cambria;
+    --fonte-tabela: 'Recursive', sans-serif;
+    --amarelo: #FAC900;
+    --roxo: #C75EEB;
+    --verde: #61E061;
+    --azul: #4EBFE9;
+    --vermelho: #F6543B;
+    --cinza-claro: #fafafa;
+}
+
+/* Definições universais */
+* {
+    font-family: var(--fonte-tabela);
+    color: #434343;
+}
+
+/** 1ª Seção - cabeçalho */
+
+.secao-cabecalho {
+    align-items: center;
+    margin: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Logotipo - imagem */
+img {
+    width: 30%;
+    margin: 0;
+}
+
+/* Bloco de anotações */
+.anotacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fac800a2;
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    align-items: center;
+
+}
+
+.anotacoes label {
+    font-size: 28px;
+    font-family: var(--fonte-titulo);
+    color: #707070;
+    font-weight: 600;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+}
+
+.anotacoes textarea {
+    border-radius: 1rem;
+    cursor: text;
+}
+
+/* Formulário - Adicionar Nova Tarefa */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #e8e8e8;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+
+form h2 {
+    font-size: 28px;
+    font-family: var(--fonte-titulo);
+    color: var(--roxo);
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+form h2::before {
+    width: 18px;
+    height: 18px;
+    background-color: var(--verde);
+}
+
+form h2::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+form h2::before,
+form h2::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: var(--verde);
+}
+
+
+/** 2ª Seção - tabela */
+
+.secao-tabela {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+/* Tabela */
+table {
+    width: 80%;
+    font-size: 30px;
+    height: 30px;
+}
+
+th {
+    background-color: #e8e8e8;
+    font-family: var(--fonte-titulo);
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #dddddd88;
+    border-radius: 20px;
+}
+
+/* Coluna "Remover" no título (invisível) */
+.campo-invisivel {
+    width: 80px;
+    background-color: #43434300;
+    border: none;
+}
+
+
+/** Campos a serem adicionados com JavaScript */
+
+/* Células */
+td {
+    padding: 8px;
+    border: 1px solid #ddddddb9;
+    border-radius: 20px;
+    font-family: var(--fonte-tabela);
+    font-size: 20px;
+    color: #464646;
+}
+
+/* Checkbox */
+.feito {
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Resultado do Progresso */
+span {
+    font-weight: 700;
+}
+
+.atrasado {
+    color: var(--vermelho);
+
+}
+
+.aFazer {
+    color: var(--azul);
+}
+
+.finalizado {
+    color: var(--verde);
+}
+
+/** Botões */
+
+button {
+    padding: 8px;
+    border: 1px solid #ddddddb9;
+    border-radius: 20px;
+    font-family: var(--fonte-tabela);
+    color: #464646;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+/* Efeitos de transição */
+button::before {
+    top: -1em;
+    left: -1em;
+}
+
+button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+button::before,
+button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    transition: 1s ease;
+}
+
+button:hover::before,
+button:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+/* Quando o mouse está em cima */
+button:hover {
+    color: rgb(255, 255, 255);
+}
+
+/* Quando o mouse está pressionado */
+button:active {
+    filter: brightness(.8);
+}
+
+/* Div botões */
+.botoes {
+    align-items: flex-start;
+    display: block;
+    width: 15%;
+}
+
+.botoes button {
+    width: 100%;
+    height: 6rem;
+    font-family: var(--fonte-titulo);
+    font-size: 150%;
+    margin: 8px 0;
+}
+
+/* Menu - filtro por disciplina */
+.botoes select {
+    width: 100%;
+    height: 4rem;
+    border: none;
+    margin: 20px 0;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+/* Adicionar */
+button.adicionar {
+    color: black;
+    background: #61e0619d;
+    height: 2rem;
+    border-radius: 3rem;
+}
+
+button.adicionar::before,
+button.adicionar::after {
+    background-color: var(--verde);
+}
+
+/* Filtrar */
+
+.filtroMenu {
+    display: none;
+}
+
+button.filtrar {
+    background: #4ec0e997;
+}
+
+button.filtrar::before,
+button.filtrar::after {
+    background-color: var(--azul);
+}
+
+/* Ordenar */
+button.ordenar {
+    background: #fac800a7;
+}
+
+button.ordenar::before,
+button.ordenar::after {
+    background-color: var(--amarelo);
+}
+
+/* Total */
+#totalResultado {
+    display: none;
+}
+
+button.total {
+    background: #c85eebb1;
+}
+
+button.total::before,
+button.total::after {
+    background-color: var(--roxo);
+}
+
+/* Remover */
+button.remover {
+    background: #f6543bb2;
+}
+
+button.remover::before,
+button.remover::after {
+    background-color: var(--vermelho);
+}

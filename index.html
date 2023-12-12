@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu planner de estudos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- Logo + Bloco de Anotações + Adicionar Novas Tarefas -->
+    <section class="secao-cabecalho">
+      <!-- Logo -->
+      <img src="logo.svg" alt="planner de estudos">
+
+      <!-- Bloco de Anotações -->
+      <div class="anotacoes">
+        <label for="bloco">Bloco de notas</label>
+        <textarea name="bloco" cols="30" rows="10"></textarea>
+      </div>
+
+      <!-- Adicionar nova tarefa -->
+      <form>
+        <h2>Adicionar nova tarefa</h2>
+
+        <div>
+          <label for="disciplina">Disciplina:</label>
+          <select id="disciplina" class="lista-disciplinas">
+            <option disabled>Escolha uma disciplina</option>
+          </select>
+
+        </div>
+        <div>
+          <label for="descricao">Tarefa:</label>
+          <input id="descricao" name="tarefa" type="text" placeholder="digite sua tarefa" required>
+          <br>
+        </div>
+        <div>
+          <label for="dataDeConclusao">Prazo:</label>
+          <input type="date" id="dataDeConclusao" required>
+        </div>
+
+        <!-- Botão adicionar -->
+        <button type="button" id="adicionar-licao" class="adicionar">Enviar</button>
+      </form>
+    </section>
+  </header>
+
+
+  <!-- Tabela + botões laterais -->
+  <section class="secao-tabela">
+
+    <!-- Tabela: títulos -->
+    <table>
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Tarefa</th>
+          <th>Prazo</th>
+          <th>Feito</th>
+          <th>Progresso</th>
+          <th class="campo-invisivel"></th>
+
+        </tr>
+      </thead>
+      <!-- Tabela: tarefas -->
+      <tbody id="tabelaRequisicoes">
+      </tbody>
+    </table>
+
+    <!-- Botões laterais -->
+    <div class="botoes">
+      <div>
+        <button class="filtrar" id="filtroBotao">Filtrar por disciplina</button>
+        <select id="filtroMenu" class="filtroMenu lista-disciplinas" onchange="filtraRequisicoes()">
+          <option value="" selected>Todas</option>
+        </select>
+      </div>
+
+      <button class="ordenar" id="ordenarBotao">Ordenar <br> por prazo</button>
+
+      <div>
+        <button class="total" id="totalBotao">Total de tarefas</button>
+        <p id="totalResultado">Você tem um total <br>de <strong><span id="totalValor"></span> tarefas</strong> para
+          fazer</p>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- Scripts JavaScript -->
+  <script src="js/disciplina.js"></script>
+  <script src="js/localStorage.js"></script>
+  <script src="js/adicionar.js"></script>
+  <script src="js/total.js"></script>
+  <script src="js/tabela.js"></script>
+  <script src="js/filtrar.js"></script>
+  <script src="js/ordenar.js"></script>
+</body>
+
+</html>
